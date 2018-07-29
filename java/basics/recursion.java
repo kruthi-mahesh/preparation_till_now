@@ -1,0 +1,35 @@
+class Factorial{
+	int m;
+	static int count = 0;
+	Factorial(){
+	m=5;
+	}
+	int dec(){
+	if(m==0) return 0;
+	m--;
+	count++;
+	return dec();
+	}
+	
+	int fact(int n){
+		int result;
+		if(n==1)	return 1;
+		else
+			return (fact(n-1) * n);
+	}
+}
+
+class recursion{
+	public static void main(String args[]){
+		Factorial f = new Factorial();
+		int res = f.fact(4);
+		
+		System.out.println(res);
+		res = f.fact(5);
+		
+		System.out.println(res);
+		f.dec();
+		System.out.println(f.m + " "  + f.count);
+	}
+}
+		

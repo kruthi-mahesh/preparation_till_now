@@ -1,0 +1,37 @@
+class test{
+	int a,b;
+	test(int i,int j){
+		a=i; b=j;
+	}
+	
+	test(){
+		a=-1;b=-1;
+	}
+	
+	test(test o)
+	{
+		a=o.a;
+		b=o.b;
+	}
+	
+	void disp()
+	{
+		System.out.println("a = " + a);
+		System.out.println( "b= " + b);
+	}
+	
+}
+
+class overloadctr{
+	public static void main(String args[]){
+		test t1 =new test(4,5);
+		test t2 = new test();
+		test t3 = new test(t1);
+		test t4 = new test(t2);
+		t1.disp();
+		t2.disp();
+		t3.disp();
+		t4.disp();
+	}
+}
+	

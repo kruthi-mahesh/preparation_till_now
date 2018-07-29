@@ -1,0 +1,9 @@
+class 1{
+	public static void main(String args[]){
+		int a[];
+		if(a==null)
+			System.out.println("ais null");
+		else
+			System.out.println("NO");
+	}
+}

@@ -1,0 +1,17 @@
+class a4{
+	 int [] ret(){
+		int a[] = new int[3];
+		return a;
+	}
+		
+	public static void main(String args[]){
+		a4 obj = new a4();
+		int b[] = obj.ret();
+		System.out.println(b[1]);
+		int [] a,c = new int [5];
+		a = new int[3];
+		
+		System.out.println(c[4] + a[1]);
+		
+	}
+}

@@ -1,0 +1,94 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+import java.util.stream.IntStream;
+
+
+public class _1a {
+ /*
+     * Complete the rollingString function below.
+     */
+    static String rollingString(String s, String[] operations) {
+        /*
+         * Write your code here.
+         */
+        int count[] =  new int[s.length()];
+
+        for(String line: operations)
+        {
+            String[] parts = line.split(" ");
+
+            int l = Integer.parseInt(parts[0]);
+            int r = Integer.parseInt(parts[1]);
+            String rotate = parts[2];
+
+            if(rotate.equals("L"))
+                for(int j=l;j<=r;j++)
+                    count[j]-=1;
+            else
+                for(int j=l;j<=r;j++)
+                    count[j]+=1;
+        }
+        
+        return roll(s,count);
+    }
+    public static String roll(String toRoll, int rollCounts[]) {
+
+        int toRollLength = toRoll.length();
+        char toRollArray[] = toRoll.toCharArray();
+        IntStream.range(0, toRollLength).forEach(index -> {
+            if(rollCounts[index]>=0)
+                toRollArray[index] = (char) ('a' + (rollCounts[index] % 26 + toRollArray[index] - 'a') % 26);
+            else
+                toRollArray[index] = (char) ('z' + (rollCounts[index] % 26 + toRollArray[index] - 'z') % 26);
+            
+        });
+
+        return String.valueOf(toRollArray);
+
+    }
+
+ private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+       // BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String s = scanner.nextLine();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])*");
+
+        int operationsCount = scanner.nextInt();
+       // scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])*");
+        scanner.nextLine();
+        String[] operations = new String[operationsCount];
+
+        for (int operationsItr = 0; operationsItr < operationsCount; operationsItr++) {
+            String operationsItem = scanner.nextLine();
+            
+           //scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])*");
+            operations[operationsItr] = operationsItem;
+        }
+
+        String res = rollingString(s, operations);
+        System.out.println(res);
+
+        //bufferedWriter.write(res);
+       // bufferedWriter.newLine();
+
+        //bufferedWriter.close();
+
+        scanner.close();
+    }
+}
+
+/*Input
+abc
+3
+0 0 L
+2 2 L
+0 2 R
+
+Output
+acc
+*/

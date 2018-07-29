@@ -1,0 +1,7 @@
+class floating{
+	public static void main(String args[]){
+		float a;
+		a = 2e-2;
+		System.out.println("a "+a);
+	}
+}

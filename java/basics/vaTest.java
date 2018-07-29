@@ -1,0 +1,18 @@
+class passarr{
+	void fn(int a[]){
+		System.out.println(" no of argu : "+ a.length + " Contents: ");
+		for(int i=0;i<a.length;i++){
+			System.out.println(" " + a[i]);
+		}
+		for(int x: a)
+			System.out.println(" " + x);
+	 }
+}
+	
+class vaTest{
+	public static void main(String args[]){
+		int a[] = {2,4,6,8,10};
+		passarr ob = new passarr();
+		ob.fn(a);
+	}
+}

@@ -1,0 +1,39 @@
+class test{
+	int a;
+	test(int i){
+		a=i;
+	}
+	test(){
+	}
+	
+	test(test temp){
+		a = temp.a;
+	}
+	
+	void inc(test temp){
+		temp.a +=10;
+	}
+	test incr(){
+		test temp = new test(this);
+		temp.a+=10;
+		return temp;
+	}
+	
+	void display(){
+		System.out.println(a);
+	}
+}
+
+class Calbyref{
+	public static void main(String args[]){
+	test t1,t2,t3;
+	t1 = new test(4);
+	t2 = new test();
+	t1.inc(t2);
+	t2.inc(t2);
+	t1.display();
+	t2.display();
+	t3 = t2.incr();
+	t3.display();
+	}
+}

@@ -1,0 +1,6 @@
+class oct{
+	public static void main(String args[]){
+		int a = 0X70;
+		System.out.println("a is " + a);
+	}
+}	
